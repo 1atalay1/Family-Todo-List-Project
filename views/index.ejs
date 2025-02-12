@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+        <center><h1>Family Todo List</h1></center>
+            <% if (locals.user) {%>
+                <div class="user-container">
+                    <% for (var i = 0; i < user.length; i++) { %>
+                        <div class="user-item">
+                            <form action="/getUser" method="POST" class="user-form">
+                                <input type="hidden" name="id" value="<%= user[i].id %>">
+                                <input type="submit" value="<%= user[i].name %>" class="submit-btn">
+                            </form>
+                        </div>
+                    <% } %> 
+                </div>
+            <%}%>
+            <div class="add-user">
+                <a href="/newUser">Add Member</a>
+                <a href="/removeUser"
+            <% if (!deletebtn) { %> style="display: none;" <% } %>>
+             Remove Member
+            </a>
+            </div>
+            <div class="footer">
+                OGA © Production
+            </div>
+        
+            
+
+</body>
+</html>

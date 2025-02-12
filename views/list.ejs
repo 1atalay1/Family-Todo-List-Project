@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/list.css">
+</head>
+<body>
+        <center><h1><%= name %>'s Todo List</h1></center>
+        <div class="container">
+            <div class="list">
+                <h2><%=today%></h2>
+                <% if (locals.todayTodo){%>
+                    <%for (var i=0;i<todayTodo.length;i++){%>
+                        <div class="items">
+                            <form action="/delete" method="POST">
+                                <input type="hidden" name="todoID" value="<%=todayTodo[i].id%>">
+                                <input type="submit" value="🗑️">
+                            </form>
+                            <p id="title<%=todayTodo[i].id%>">
+                                <%= todayTodo[i].title %>
+                              </p>
+                            <form  action="/edit" method="POST">
+                                <input type="hidden" name="todoID" value="<%=todayTodo[i].id%>">
+                                <input id="input<%=todayTodo[i].id%>" type="text" name="updatedItemTitle" value="<%= todayTodo[i].title %>" autocomplete="off"
+                                 hidden="true" style="margin-right: 10px;" class="updatedItemTitle" />
+                                <button id="done<%=todayTodo[i].id%>"  type="submit" hidden="true" class="editbtn">✓</button>
+                            </form>
+                            <button id="edit<%=todayTodo[i].id%>"  onclick="handler('<%=todayTodo[i].id%>')">✏️</button>
+
+                        </div>
+                    <%}%>
+                <%}%>
+            <form action="/addTodayTodo" method="POST" class="form">
+                <input type="text" placeholder="New Item" name="item">
+                <input type="submit" value="+">
+            </form>
+            </div>
+            <div class="list">
+                <h2><%=week%></h2>
+                <% if (locals.weekTodo){%>
+                    <%for (var i=0;i<weekTodo.length;i++){%>
+                        <div class="items">
+                            <form action="/delete" method="POST">
+                                <input type="hidden" name="todoID" value="<%=weekTodo[i].id%>">
+                                <input type="submit" value="🗑️">
+                            </form>
+                            <p id="title<%=weekTodo[i].id%>">
+                                <%= weekTodo[i].title %>
+                              </p>
+                            <form  action="/edit" method="POST">
+                                <input type="hidden" name="todoID" value="<%=weekTodo[i].id%>">
+                                <input id="input<%=weekTodo[i].id%>" type="text" name="updatedItemTitle" value="<%= weekTodo[i].title %>" autocomplete="off"
+                                 hidden="true" style="margin-right: 10px;" class="updatedItemTitle" />
+                                <button id="done<%=weekTodo[i].id%>"  type="submit" hidden="true" class="editbtn">✓</button>
+                            </form>
+                            <button id="edit<%=weekTodo[i].id%>"  onclick="handler('<%=weekTodo[i].id%>')">✏️</button>
+                        </div>
+                    <%}%>
+                    <%}%>
+                <form action="addWeekTodo" method="POST" class="form">
+                    <input type="text" placeholder="New Item" name="item">
+                    <input type="submit" value="+">
+                </form>
+                
+            </div>
+            <div class="list">
+                <h2><%=month%></h2>
+                <% if (locals.monthTodo){%>
+
+                    <%for (var i=0;i<monthTodo.length;i++){%>
+                        <div class="items">
+                            <form action="/delete" method="POST">
+                                <input type="hidden" name="todoID" value="<%=monthTodo[i].id%>">
+                                <input type="submit" value="🗑️">
+                            </form>
+                            <p id="title<%=monthTodo[i].id%>">
+                                <%= monthTodo[i].title %>
+                              </p>
+                            <form  action="/edit" method="POST">
+                                <input type="hidden" name="todoID" value="<%=monthTodo[i].id%>">
+                                <input id="input<%=monthTodo[i].id%>" type="text" name="updatedItemTitle" value="<%= monthTodo[i].title %>" autocomplete="off"
+                                 hidden="true" style="margin-right: 10px;" class="updatedItemTitle" />
+                                <button id="done<%=monthTodo[i].id%>"  type="submit" hidden="true" class="editbtn">✓</button>
+                            </form>
+                            <button id="edit<%=monthTodo[i].id%>"  onclick="handler('<%=monthTodo[i].id%>')">✏️</button>
+                        </div>
+                    <%}%>
+
+                    <%}%>
+                <form action="addMonthTodo" method="POST" class="form">
+                    <input type="text" placeholder="New Item" name="item">
+                    <input type="submit" value="+">
+                </form>
+
+            </div>
+        </div>
+      <script src="/script/list.js"></script>
+    </body>
+
+
+</html>

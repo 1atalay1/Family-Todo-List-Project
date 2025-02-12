@@ -1,0 +1,94 @@
+html{
+    background-image: url("/img/bg.jpg");
+    overflow-x: hidden;
+}
+
+h1 {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.user-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 5rem;
+}
+
+
+.user-item {
+    background: #ff7e5f;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-form {
+    width: 100%; 
+}
+
+.submit-btn {
+    width: 100%; 
+    padding: 15px;
+    background-color: #ff7e5f; 
+    color: white; 
+    border: none; 
+    font-size: 1.2rem; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    box-sizing: border-box; 
+}
+
+.add-user {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap:1rem;
+}
+
+.add-user a {
+    display: inline-block; 
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); 
+    color: white; 
+    padding: 12px 30px; 
+    font-size: 1.2rem; 
+    border-radius: 30px; 
+    text-decoration: none; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.add-user a:hover {
+    background: linear-gradient(90deg, #feb47b, #ff7e5f); 
+    transform: scale(1.05); 
+}
+
+.add-user a:focus {
+    outline: none; 
+    box-shadow: 0 0 5px rgba(255, 126, 95, 0.7); 
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+@media(max-width:800px){
+    .user-container{
+        margin-top: 3rem;
+    }
+}

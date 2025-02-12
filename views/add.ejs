@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/add.css">
+</head>
+<body>
+        <center><h1>
+            <% if (locals.title) { %>
+                <%= title %>
+            <% } else { %>
+                Add New Member
+            <% } %>
+                    
+        </h1></center>
+
+        <% if (locals.members) {%>
+
+            <form action="/deleteUser" method="POST" class="user-form">
+                <div class="form">
+                    <select name="select_user" id="select_user">
+                        <% for (var i=0;i<members.length;i++) {%>
+                                <option value="<%=members[i].name%>"><%=members[i].name%></option>
+                        <%}%>  
+                    </select>
+                    <input type="submit" value="Delete" class="form-submit">
+                </div>
+            </form>
+            
+        <% } else { %>
+        
+        <form action="/addUser" method="POST" class="user-form">
+            <div class="form">
+                <input type="text" name="name" placeholder="Enter Name" class="form-input">
+                <input type="submit" value="Insert" class="form-submit">
+            </div>
+        </form>
+        <%}%>
+
+
+        <div class="footer">
+            OGA © Production
+        </div>
+</body>
+</html>
